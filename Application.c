@@ -7,39 +7,29 @@
 
 #include "Application.h"
 
-pin_config_t LEDs[8];
+#define LEDsNum 8
 
-Std_ReturnType ret_val;
+led_t LEDs[LEDsNum];
+Std_ReturnType ret_val = E_OK;
 
-int main() {
-
-    for(uint8 index = 0; index < 8; index++)
+int main() 
+{
+    for(uint8 index = 0; index < LEDsNum; index++)
     {
-        LEDs[index].port = PORTC_INDEX;
         LEDs[index].direction = OUTPUT;
         LEDs[index].logic = LOW;
         LEDs[index].pin = index;
+        LEDs[index].port = PORTC_INDEX;
+        
+        led_initialize(&LEDs[index]);
     }
-    
-    ret_val = gpio_port_direction_intialize(PORTC_INDEX, 0x00);
-    ret_val = gpio_port_write_logic(PORTC_INDEX, 0xFF);
-    
-    __delay_ms(5000);
     
     while(1)
     {
-        for(sint8 index = 3; index >= 0; index--)
+        for(uint8 index = 0; index < LEDsNum; index++)
         {
-            ret_val = gpio_pin_write_logic(&LEDs[index], LOW);
-            ret_val = gpio_pin_write_logic(&LEDs[7 - index], LOW);
-            __delay_ms(500);
-        }
-        
-        for(uint8 index = 0; index < 4; index++)
-        {
-            ret_val = gpio_pin_write_logic(&LEDs[index], HIGH);
-            ret_val = gpio_pin_write_logic(&LEDs[7 - index], HIGH);
-            __delay_ms(500);
+            ret_val = led_toggle(&LEDs[index]);
+            __delay_ms(250);
         }
     }
     

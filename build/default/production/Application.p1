@@ -1,14 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"65 ./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h
-[; ;./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 65: typedef struct{
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
+"25 ./Ecu_Layer/LED/ecu_led.h
+[; ;./Ecu_Layer/LED/ecu_led.h: 25: typedef struct{
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
 [p mainexit ]
-"18 Application.c
-[; ;Application.c: 18:         LEDs[index].port = PORTC_INDEX;
-[c E2834 0 1 2 3 4 .. ]
-[n E2834 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-"19
+"19 Application.c
 [; ;Application.c: 19:         LEDs[index].direction = OUTPUT;
 [c E2820 0 1 .. ]
 [n E2820 . OUTPUT INPUT  ]
@@ -16,20 +12,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Application.c: 20:         LEDs[index].logic = LOW;
 [c E2816 0 1 .. ]
 [n E2816 . LOW HIGH  ]
-"125 ./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h
-[; ;./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 125: Std_ReturnType gpio_port_direction_intialize(const port_index_t port, const uint8 direction);
-[v _gpio_port_direction_intialize `(uc ~T0 @X0 0 ef2`CE2834`Cuc ]
-"141
-[; ;./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 141: Std_ReturnType gpio_port_write_logic(const port_index_t const port, const uint8 logic);
-[v _gpio_port_write_logic `(uc ~T0 @X0 0 ef2`CE2834`Cuc ]
+"22
+[; ;Application.c: 22:         LEDs[index].port = PORTC_INDEX;
+[c E2834 0 1 2 3 4 .. ]
+[n E2834 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[v F2907 `*CS273 ~T0 @X0 1 t ]
+"41 ./Ecu_Layer/LED/ecu_led.h
+[; ;./Ecu_Layer/LED/ecu_led.h: 41: Std_ReturnType led_initialize(const led_t * const led);
+[v _led_initialize `(uc ~T0 @X0 0 ef1`C*CS273 ]
+[v F2919 `*CS273 ~T0 @X0 1 t ]
+"68
+[; ;./Ecu_Layer/LED/ecu_led.h: 68: Std_ReturnType led_toggle(const led_t * const led);
+[v _led_toggle `(uc ~T0 @X0 0 ef1`C*CS273 ]
 [v F2463 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
 [v __delay `JF2463 ~T0 @X0 0 e ]
 [p i __delay ]
-[v F2859 `*CS272 ~T0 @X0 1 t ]
-"95 ./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h
-[; ;./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t * const pin_config, const logic_t logic);
-[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`C*CS272`CE2816 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -441,33 +439,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 Application.c
-[; ;Application.c: 10: pin_config_t LEDs[8];
-[v _LEDs `S272 ~T0 @X0 -> 8 `i e ]
-"12
-[; ;Application.c: 12: Std_ReturnType ret_val;
+"12 Application.c
+[; ;Application.c: 12: led_t LEDs[8];
+[v _LEDs `S273 ~T0 @X0 -> 8 `i e ]
+"13
+[; ;Application.c: 13: Std_ReturnType ret_val = (Std_ReturnType)0x01;
 [v _ret_val `uc ~T0 @X0 1 e ]
+[i _ret_val
+-> -> 1 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14
-[; ;Application.c: 14: int main() {
+"15
+[; ;Application.c: 15: int main()
 [v _main `(i ~T0 @X0 1 ef ]
+"16
+[; ;Application.c: 16: {
 {
 [e :U _main ]
 [f ]
-"16
-[; ;Application.c: 16:     for(uint8 index = 0; index < 8; index++)
+"17
+[; ;Application.c: 17:     for(uint8 index = 0; index < 8; index++)
 {
 [v _index `uc ~T0 @X0 1 a ]
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 8 `i 274  ]
-[e $U 275  ]
-[e :U 274 ]
-"17
-[; ;Application.c: 17:     {
-{
+[e $ < -> _index `i -> 8 `i 275  ]
+[e $U 276  ]
+[e :U 275 ]
 "18
-[; ;Application.c: 18:         LEDs[index].port = PORTC_INDEX;
-[e = . *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux 0 -> . `E2834 2 `uc ]
+[; ;Application.c: 18:     {
+{
 "19
 [; ;Application.c: 19:         LEDs[index].direction = OUTPUT;
 [e = . *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux 2 -> . `E2820 0 `uc ]
@@ -478,92 +478,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Application.c: 21:         LEDs[index].pin = index;
 [e = . *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux 1 _index ]
 "22
-[; ;Application.c: 22:     }
+[; ;Application.c: 22:         LEDs[index].port = PORTC_INDEX;
+[e = . *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux 0 -> . `E2834 2 `uc ]
+"24
+[; ;Application.c: 24:         led_initialize(&LEDs[index]);
+[e ( _led_initialize (1 -> &U *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux `*CS273 ]
+"25
+[; ;Application.c: 25:     }
 }
 [e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 8 `i 274  ]
-[e :U 275 ]
+[e $ < -> _index `i -> 8 `i 275  ]
+[e :U 276 ]
 }
-"24
-[; ;Application.c: 24:     ret_val = gpio_port_direction_intialize(PORTC_INDEX, 0x00);
-[e = _ret_val ( _gpio_port_direction_intialize (2 , . `E2834 2 -> -> 0 `i `uc ]
-"25
-[; ;Application.c: 25:     ret_val = gpio_port_write_logic(PORTC_INDEX, 0xFF);
-[e = _ret_val ( _gpio_port_write_logic (2 , . `E2834 2 -> -> 255 `i `uc ]
 "27
-[; ;Application.c: 27:     _delay((unsigned long)((5000)*((uint32)4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> -> 4000000 `l `ul `d .4000.0 `ul ]
+[; ;Application.c: 27:     while(1)
+[e :U 279 ]
+"28
+[; ;Application.c: 28:     {
+{
 "29
-[; ;Application.c: 29:     while(1)
-[e :U 278 ]
-"30
-[; ;Application.c: 30:     {
-{
-"31
-[; ;Application.c: 31:         for(sint8 index = 3; index >= 0; index--)
-{
-[v _index `c ~T0 @X0 1 a ]
-[e = _index -> -> 3 `i `c ]
-[e $ >= -> _index `i -> 0 `i 280  ]
-[e $U 281  ]
-[e :U 280 ]
-"32
-[; ;Application.c: 32:         {
-{
-"33
-[; ;Application.c: 33:             ret_val = gpio_pin_write_logic(&LEDs[index], LOW);
-[e = _ret_val ( _gpio_pin_write_logic (2 , -> &U *U + &U _LEDs * -> -> _index `uc `ux -> -> # *U &U _LEDs `ui `ux `*CS272 . `E2816 0 ]
-"34
-[; ;Application.c: 34:             ret_val = gpio_pin_write_logic(&LEDs[7 - index], LOW);
-[e = _ret_val ( _gpio_pin_write_logic (2 , -> &U *U + &U _LEDs * -> -> - -> 7 `i -> _index `i `ui `ux -> -> # *U &U _LEDs `ui `ux `*CS272 . `E2816 0 ]
-"35
-[; ;Application.c: 35:             _delay((unsigned long)((500)*((uint32)4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> -> 4000000 `l `ul `d .4000.0 `ul ]
-"36
-[; ;Application.c: 36:         }
-}
-[e -- _index -> -> 1 `i `c ]
-[e $ >= -> _index `i -> 0 `i 280  ]
-[e :U 281 ]
-}
-"38
-[; ;Application.c: 38:         for(uint8 index = 0; index < 4; index++)
+[; ;Application.c: 29:         for(uint8 index = 0; index < 8; index++)
 {
 [v _index `uc ~T0 @X0 1 a ]
 [e = _index -> -> 0 `i `uc ]
-[e $ < -> _index `i -> 4 `i 283  ]
-[e $U 284  ]
-[e :U 283 ]
-"39
-[; ;Application.c: 39:         {
+[e $ < -> _index `i -> 8 `i 281  ]
+[e $U 282  ]
+[e :U 281 ]
+"30
+[; ;Application.c: 30:         {
 {
-"40
-[; ;Application.c: 40:             ret_val = gpio_pin_write_logic(&LEDs[index], HIGH);
-[e = _ret_val ( _gpio_pin_write_logic (2 , -> &U *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux `*CS272 . `E2816 1 ]
-"41
-[; ;Application.c: 41:             ret_val = gpio_pin_write_logic(&LEDs[7 - index], HIGH);
-[e = _ret_val ( _gpio_pin_write_logic (2 , -> &U *U + &U _LEDs * -> -> - -> 7 `i -> _index `i `ui `ux -> -> # *U &U _LEDs `ui `ux `*CS272 . `E2816 1 ]
-"42
-[; ;Application.c: 42:             _delay((unsigned long)((500)*((uint32)4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> -> 4000000 `l `ul `d .4000.0 `ul ]
-"43
-[; ;Application.c: 43:         }
+"31
+[; ;Application.c: 31:             ret_val = led_toggle(&LEDs[index]);
+[e = _ret_val ( _led_toggle (1 -> &U *U + &U _LEDs * -> _index `ux -> -> # *U &U _LEDs `ui `ux `*CS273 ]
+"32
+[; ;Application.c: 32:             _delay((unsigned long)((250)*((uint32)4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> -> 4000000 `l `ul `d .4000.0 `ul ]
+"33
+[; ;Application.c: 33:         }
 }
 [e ++ _index -> -> 1 `i `uc ]
-[e $ < -> _index `i -> 4 `i 283  ]
-[e :U 284 ]
+[e $ < -> _index `i -> 8 `i 281  ]
+[e :U 282 ]
 }
-"44
-[; ;Application.c: 44:     }
+"34
+[; ;Application.c: 34:     }
 }
-[e :U 277 ]
-[e $U 278  ]
-[e :U 279 ]
-"46
-[; ;Application.c: 46:     return (0);
+[e :U 278 ]
+[e $U 279  ]
+[e :U 280 ]
+"36
+[; ;Application.c: 36:     return (0);
 [e ) -> 0 `i ]
-[e $UE 273  ]
-"47
-[; ;Application.c: 47: }
-[e :UE 273 ]
+[e $UE 274  ]
+"37
+[; ;Application.c: 37: }
+[e :UE 274 ]
 }

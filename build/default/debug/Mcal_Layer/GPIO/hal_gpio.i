@@ -4794,7 +4794,9 @@ Std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 
 volatile uint8 * tris_registers[] = {&TRISA, &TRISB, &TRISC, &TRISD, &TRISE};
 
+
 volatile uint8 * lat_registers[] = {&LATA , &LATB , &LATC , &LATD , &LATE};
+
 
 volatile uint8 * port_registers[] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};
 
@@ -4947,6 +4949,109 @@ Std_ReturnType gpio_pin_intialize(const pin_config_t * const pin_config)
     {
         return_value = gpio_pin_direction_intialize(pin_config);
         return_value = gpio_pin_write_logic(pin_config, pin_config->logic);
+    }
+
+    return return_value;
+}
+# 174 "Mcal_Layer/GPIO/hal_gpio.c"
+Std_ReturnType gpio_port_direction_intialize(const port_index_t port, const uint8 direction)
+{
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
+
+    if(((uint8)5 - 1) < port)
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *tris_registers[port] = direction;
+    }
+
+    return return_value;
+}
+
+
+
+
+
+
+
+Std_ReturnType gpio_port_get_direction_status(const port_index_t port, uint8 * const direction_status)
+{
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
+
+    if((((uint8)5 - 1) < port) || (((void*)0) == direction_status))
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *direction_status = *tris_registers[port];
+    }
+
+    return return_value;
+}
+
+
+
+
+
+
+
+Std_ReturnType gpio_port_write_logic(const port_index_t const port, const uint8 logic)
+{
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
+
+    if(((uint8)5 - 1) < port)
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *lat_registers[port] = logic;
+    }
+
+    return return_value;
+}
+
+
+
+
+
+
+
+Std_ReturnType gpio_port_read_logic(const port_index_t port, uint8 * const logic)
+{
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
+
+    if((((uint8)5 - 1) < port) || (((void*)0) == logic))
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *logic = *port_registers[port];
+    }
+
+    return return_value;
+}
+
+
+
+
+
+
+Std_ReturnType gpio_port_toggle_logic(const port_index_t port)
+{
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
+
+    if(((uint8)5 - 1) < port)
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        *lat_registers[port] ^= 0xFF;
     }
 
     return return_value;

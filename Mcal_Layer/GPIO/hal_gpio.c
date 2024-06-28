@@ -163,7 +163,7 @@ Std_ReturnType gpio_pin_intialize(const pin_config_t * const pin_config)
     return return_value;
 }
 
-//#if CONFIG_ENABLE == GPIO_PORT_CONFIGURATIONS
+#if CONFIG_ENABLE == GPIO_PORT_CONFIGURATIONS
 
 /**
  * @brief function to initialize the direction of all pins of port //OUTPUT or INPUT
@@ -274,4 +274,4 @@ Std_ReturnType gpio_port_toggle_logic(const port_index_t port)
     return return_value;
 }
 
-//#endif
+#endif

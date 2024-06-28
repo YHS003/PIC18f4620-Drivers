@@ -4800,43 +4800,62 @@ Std_ReturnType gpio_port_read_logic(const port_index_t port, uint8 * const logic
 
 Std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 # 12 "./Ecu_Layer/LED/ecu_led.h" 2
+
+# 1 "./Ecu_Layer/LED/ecu_led_cfg.h" 1
+# 13 "./Ecu_Layer/LED/ecu_led.h" 2
+
+
+
+
+
+
+
+typedef enum{
+    LED_OFF,
+    LED_ON
+}led_status_t;
+
+typedef struct{
+    uint8 port : 3;
+    uint8 pin : 3;
+    uint8 direction : 1;
+    uint8 logic : 1;
+}led_t;
+# 41 "./Ecu_Layer/LED/ecu_led.h"
+Std_ReturnType led_initialize(const led_t * const led);
+# 50 "./Ecu_Layer/LED/ecu_led.h"
+Std_ReturnType led_turn_on(const led_t * const led);
+# 59 "./Ecu_Layer/LED/ecu_led.h"
+Std_ReturnType led_turn_off(const led_t * const led);
+# 68 "./Ecu_Layer/LED/ecu_led.h"
+Std_ReturnType led_toggle(const led_t * const led);
 # 12 "./Application.h" 2
 # 8 "Application.c" 2
 
 
-pin_config_t LEDs[8];
 
-Std_ReturnType ret_val;
 
-int main() {
+led_t LEDs[8];
+Std_ReturnType ret_val = (Std_ReturnType)0x01;
 
+int main()
+{
     for(uint8 index = 0; index < 8; index++)
     {
-        LEDs[index].port = PORTC_INDEX;
         LEDs[index].direction = OUTPUT;
         LEDs[index].logic = LOW;
         LEDs[index].pin = index;
+        LEDs[index].port = PORTC_INDEX;
+
+        led_initialize(&LEDs[index]);
     }
-
-    ret_val = gpio_port_direction_intialize(PORTC_INDEX, 0x00);
-    ret_val = gpio_port_write_logic(PORTC_INDEX, 0xFF);
-
-    _delay((unsigned long)((5000)*((uint32)4000000/4000.0)));
 
     while(1)
     {
-        for(sint8 index = 3; index >= 0; index--)
+        for(uint8 index = 0; index < 8; index++)
         {
-            ret_val = gpio_pin_write_logic(&LEDs[index], LOW);
-            ret_val = gpio_pin_write_logic(&LEDs[7 - index], LOW);
-            _delay((unsigned long)((500)*((uint32)4000000/4000.0)));
-        }
-
-        for(uint8 index = 0; index < 4; index++)
-        {
-            ret_val = gpio_pin_write_logic(&LEDs[index], HIGH);
-            ret_val = gpio_pin_write_logic(&LEDs[7 - index], HIGH);
-            _delay((unsigned long)((500)*((uint32)4000000/4000.0)));
+            ret_val = led_toggle(&LEDs[index]);
+            _delay((unsigned long)((250)*((uint32)4000000/4000.0)));
         }
     }
 
