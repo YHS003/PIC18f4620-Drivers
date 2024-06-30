@@ -6,31 +6,42 @@
  */
 
 #include "Application.h"
+#include "Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
 
-#define LEDsNum 8
+Std_ReturnType btn1_ret, btn2_ret;
 
-led_t LEDs[LEDsNum];
-Std_ReturnType ret_val = E_OK;
+button_state_t btn1_state = BUTTON_NOT_PRESSED;
+button_state_t btn2_state = BUTTON_NOT_PRESSED;
+
+button_t btn1 = 
+{
+    .button_connection = BUTTON_ACTIVE_HIGH,
+    .button_state = BUTTON_NOT_PRESSED,
+    .button_pin.direction = INPUT,
+    .button_pin.logic = LOW,
+    .button_pin.pin = PIN0,
+    .button_pin.port = PORTD_INDEX
+};
+
+button_t btn2 = 
+{
+    .button_connection = BUTTON_ACTIVE_LOW,
+    .button_state = BUTTON_NOT_PRESSED,
+    .button_pin.direction = INPUT,
+    .button_pin.logic = LOW,
+    .button_pin.pin = PIN1,
+    .button_pin.port = PORTD_INDEX
+};
 
 int main() 
 {
-    for(uint8 index = 0; index < LEDsNum; index++)
-    {
-        LEDs[index].direction = OUTPUT;
-        LEDs[index].logic = LOW;
-        LEDs[index].pin = index;
-        LEDs[index].port = PORTC_INDEX;
-        
-        led_initialize(&LEDs[index]);
-    }
+    btn1_ret = button_initialize(&btn1);
+    btn2_ret = button_initialize(&btn2);
     
     while(1)
     {
-        for(uint8 index = 0; index < LEDsNum; index++)
-        {
-            ret_val = led_toggle(&LEDs[index]);
-            __delay_ms(250);
-        }
+        btn1_ret = button_read_state(&btn1, &btn1_state);
+        btn2_ret = button_read_state(&btn2, &btn2_state);
     }
     
     return (EXIT_SUCCESS);
