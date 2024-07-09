@@ -16,10 +16,8 @@
 
 # 1 "./Application.h" 1
 # 12 "./Application.h"
-# 1 "./Ecu_Layer/LED/ecu_led.h" 1
-# 12 "./Ecu_Layer/LED/ecu_led.h"
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h" 1
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h"
+# 1 "./Mcal_Layer/GPIO/hal_gpio.h" 1
+# 12 "./Mcal_Layer/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4232,12 +4230,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h" 2
+# 12 "./Mcal_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../mcal_std_types.h" 1
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../mcal_std_types.h"
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../compiler.h" 1
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../compiler.h"
+# 1 "./Mcal_Layer/GPIO/../mcal_std_types.h" 1
+# 12 "./Mcal_Layer/GPIO/../mcal_std_types.h"
+# 1 "./Mcal_Layer/GPIO/../compiler.h" 1
+# 12 "./Mcal_Layer/GPIO/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4506,11 +4504,11 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../compiler.h" 2
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../mcal_std_types.h" 2
+# 12 "./Mcal_Layer/GPIO/../compiler.h" 2
+# 12 "./Mcal_Layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../std_libraries.h" 1
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../std_libraries.h"
+# 1 "./Mcal_Layer/GPIO/../std_libraries.h" 1
+# 12 "./Mcal_Layer/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4663,8 +4661,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../std_libraries.h" 2
-# 13 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../mcal_std_types.h" 2
+# 12 "./Mcal_Layer/GPIO/../std_libraries.h" 2
+# 13 "./Mcal_Layer/GPIO/../mcal_std_types.h" 2
 
 
 
@@ -4677,14 +4675,14 @@ typedef signed char sint8;
 typedef signed short sint16;
 typedef signed long sint32;
 typedef float float32;
-# 13 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h" 2
+# 13 "./Mcal_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/../device_config.h" 1
-# 14 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h" 2
+# 1 "./Mcal_Layer/GPIO/../device_config.h" 1
+# 14 "./Mcal_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio_cfg.h" 1
-# 15 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h" 2
-# 36 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h"
+# 1 "./Mcal_Layer/GPIO/hal_gpio_cfg.h" 1
+# 15 "./Mcal_Layer/GPIO/hal_gpio.h" 2
+# 36 "./Mcal_Layer/GPIO/hal_gpio.h"
 typedef enum{
     LOW = 0,
     HIGH
@@ -4720,7 +4718,7 @@ typedef struct{
     uint8 direction : 1;
     uint8 logic : 1;
 }pin_config_t;
-# 79 "./Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h"
+# 79 "./Mcal_Layer/GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_direction_intialize(const pin_config_t * const pin_config);
 
 
@@ -4799,8 +4797,10 @@ Std_ReturnType gpio_port_read_logic(const port_index_t port, uint8 * const logic
 
 
 Std_ReturnType gpio_port_toggle_logic(const port_index_t port);
-# 12 "./Ecu_Layer/LED/ecu_led.h" 2
+# 12 "./Application.h" 2
 
+# 1 "./Ecu_Layer/LED/ecu_led.h" 1
+# 13 "./Ecu_Layer/LED/ecu_led.h"
 # 1 "./Ecu_Layer/LED/ecu_led_cfg.h" 1
 # 13 "./Ecu_Layer/LED/ecu_led.h" 2
 
@@ -4828,27 +4828,71 @@ Std_ReturnType led_turn_on(const led_t * const led);
 # 59 "./Ecu_Layer/LED/ecu_led.h"
 Std_ReturnType led_turn_off(const led_t * const led);
 # 68 "./Ecu_Layer/LED/ecu_led.h"
-Std_ReturnType led_turn_toggle(const led_t * const led);
-# 12 "./Application.h" 2
+Std_ReturnType led_toggle(const led_t * const led);
+# 13 "./Application.h" 2
+
+# 1 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button.h" 1
+# 13 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
+# 1 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button_cfg.h" 1
+# 13 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button.h" 2
+
+
+
+
+
+
+
+typedef enum{
+    BUTTON_PRESSED = 0,
+    BUTTON_NOT_PRESSED
+}button_state_t;
+
+typedef enum{
+    BUTTON_ACTIVE_HIGH = 0,
+    BUTTON_ACTIVE_LOW
+}button_active_t;
+
+typedef struct{
+    pin_config_t button_pin;
+    button_state_t button_state;
+    button_active_t button_connection;
+}button_t;
+# 44 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
+Std_ReturnType button_initialize(const button_t * const btn);
+# 54 "./Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
+Std_ReturnType button_read_state(const button_t * const btn, button_state_t * const btn_state);
+# 14 "./Application.h" 2
+
+# 1 "./Ecu_Layer/RELAY/ecu_relay.h" 1
+# 12 "./Ecu_Layer/RELAY/ecu_relay.h"
+# 1 "./Ecu_Layer/RELAY/ecu_relay_cfg.h" 1
+# 12 "./Ecu_Layer/RELAY/ecu_relay.h" 2
+
+
+
+
+
+
+
+
+typedef enum{
+    RELAY_OFF = 0,
+    RELAY_ON
+}relay_status_t;
+
+typedef struct{
+    uint8 port : 3;
+    uint8 pin : 3;
+    uint8 status : 1;
+    uint8 reserved : 1;
+}relay_t;
+# 15 "./Application.h" 2
 # 8 "Application.c" 2
 
 
-
-
-led_t LEDs[8];
-Std_ReturnType ret_val = (Std_ReturnType)0x01;
-
 int main()
 {
-    for(uint8 index = 0; index < 8; index++)
-    {
-        LEDs[index].direction = OUTPUT;
-        LEDs[index].logic = LOW;
-        LEDs[index].pin = index;
-        LEDs[index].port = PORTC_INDEX;
 
-        led_initialize(&LEDs[index]);
-    }
 
     while(1)
     {

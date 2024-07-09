@@ -1,3 +1,10 @@
+/* 
+ * File:   hal_gpio.c
+ * Author: Yehya.H.Shehata
+ *
+ * Created on March 18, 2024, 9:28 PM
+ */
+
 #include "hal_gpio.h"
 
 /* Reference to the Data Direction Control Registers */

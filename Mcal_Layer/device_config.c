@@ -1,3 +1,10 @@
+/* 
+ * File:   device_config.c
+ * Author: Yehya.H.Shehata
+ *
+ * Created on March 18, 2024, 9:31 PM
+ */
+
 #include "device_config.h"
 
 // PIC18F4620 Configuration Bit Settings

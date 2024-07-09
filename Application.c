@@ -6,42 +6,32 @@
  */
 
 #include "Application.h"
-#include "Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
 
-Std_ReturnType btn1_ret, btn2_ret;
+Std_ReturnType relay1_s, relay2_s;
 
-button_state_t btn1_state = BUTTON_NOT_PRESSED;
-button_state_t btn2_state = BUTTON_NOT_PRESSED;
-
-button_t btn1 = 
-{
-    .button_connection = BUTTON_ACTIVE_HIGH,
-    .button_state = BUTTON_NOT_PRESSED,
-    .button_pin.direction = INPUT,
-    .button_pin.logic = LOW,
-    .button_pin.pin = PIN0,
-    .button_pin.port = PORTD_INDEX
+relay_t relay1 = {
+  .pin = PIN0,
+  .port = PORTA_INDEX,
+  .status = RELAY_OFF
 };
 
-button_t btn2 = 
-{
-    .button_connection = BUTTON_ACTIVE_LOW,
-    .button_state = BUTTON_NOT_PRESSED,
-    .button_pin.direction = INPUT,
-    .button_pin.logic = LOW,
-    .button_pin.pin = PIN1,
-    .button_pin.port = PORTD_INDEX
+relay_t relay2 = {
+  .pin = PIN1,
+  .port = PORTA_INDEX,
+  .status = RELAY_OFF
 };
 
 int main() 
 {
-    btn1_ret = button_initialize(&btn1);
-    btn2_ret = button_initialize(&btn2);
+    relay1_s = relay_initialize(&relay1);
+    relay2_s = relay_initialize(&relay2);
     
     while(1)
     {
-        btn1_ret = button_read_state(&btn1, &btn1_state);
-        btn2_ret = button_read_state(&btn2, &btn2_state);
+        relay1_s = relay_toggle(&relay1);
+        relay2_s = relay_toggle(&relay2);
+        
+        __delay_ms(5000);
     }
     
     return (EXIT_SUCCESS);

@@ -4826,7 +4826,7 @@ Std_ReturnType led_turn_on(const led_t * const led);
 # 59 "Ecu_Layer/LED/ecu_led.h"
 Std_ReturnType led_turn_off(const led_t * const led);
 # 68 "Ecu_Layer/LED/ecu_led.h"
-Std_ReturnType led_turn_toggle(const led_t * const led);
+Std_ReturnType led_toggle(const led_t * const led);
 # 8 "Ecu_Layer/LED/ecu_led.c" 2
 # 17 "Ecu_Layer/LED/ecu_led.c"
 Std_ReturnType led_initialize(const led_t * const led)
@@ -4839,25 +4839,56 @@ Std_ReturnType led_initialize(const led_t * const led)
     }
     else
     {
-
-
-        gpio_pin_intialize(led);
+        return_value = gpio_pin_intialize(led);
     }
 
     return return_value;
 }
-# 42 "Ecu_Layer/LED/ecu_led.c"
+# 40 "Ecu_Layer/LED/ecu_led.c"
 Std_ReturnType led_turn_on(const led_t * const led)
 {
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
 
+    if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        return_value = gpio_pin_write_logic(led, LED_ON);
+    }
+
+    return return_value;
 }
-# 54 "Ecu_Layer/LED/ecu_led.c"
+# 63 "Ecu_Layer/LED/ecu_led.c"
 Std_ReturnType led_turn_off(const led_t * const led)
 {
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
 
+    if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        return_value = gpio_pin_write_logic(led, LED_OFF);
+    }
+
+    return return_value;
 }
-# 66 "Ecu_Layer/LED/ecu_led.c"
-Std_ReturnType led_turn_toggle(const led_t * const led)
+# 86 "Ecu_Layer/LED/ecu_led.c"
+Std_ReturnType led_toggle(const led_t * const led)
 {
+    Std_ReturnType return_value = (Std_ReturnType)0x01;
 
+    if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+    {
+        return_value = (Std_ReturnType)0x00;
+    }
+    else
+    {
+        return_value = gpio_pin_toggle_logic(led);
+    }
+
+    return return_value;
 }

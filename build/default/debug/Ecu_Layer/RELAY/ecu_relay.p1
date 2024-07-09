@@ -1,5 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -411,32 +410,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"10 Application.c
-[; ;Application.c: 10: int main()
-[v _main `(i ~T0 @X0 1 ef ]
-"11
-[; ;Application.c: 11: {
-{
-[e :U _main ]
-[f ]
-"14
-[; ;Application.c: 14:     while(1)
-[e :U 278 ]
-"15
-[; ;Application.c: 15:     {
-{
-"17
-[; ;Application.c: 17:     }
-}
-[e :U 277 ]
-[e $U 278  ]
-[e :U 279 ]
-"19
-[; ;Application.c: 19:     return (0);
-[e ) -> 0 `i ]
-[e $UE 276  ]
-"20
-[; ;Application.c: 20: }
-[e :UE 276 ]
-}

@@ -13,6 +13,10 @@
           <itemPath>Ecu_Layer/PUSH_BUTTON/ecu_push_button.h</itemPath>
           <itemPath>Ecu_Layer/PUSH_BUTTON/ecu_push_button_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="RELAY" displayName="RELAY" projectFiles="true">
+          <itemPath>Ecu_Layer/RELAY/ecu_relay.h</itemPath>
+          <itemPath>Ecu_Layer/RELAY/ecu_relay_cfg.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="Mcal_Layer" displayName="Mcal_Layer" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -44,6 +48,9 @@
         </logicalFolder>
         <logicalFolder name="PUSH_BUTTON" displayName="PUSH_BUTTON" projectFiles="true">
           <itemPath>Ecu_Layer/PUSH_BUTTON/ecu_push_button.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="RELAY" displayName="RELAY" projectFiles="true">
+          <itemPath>Ecu_Layer/RELAY/ecu_relay.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="Mcal_Layer" displayName="Mcal_Layer" projectFiles="true">

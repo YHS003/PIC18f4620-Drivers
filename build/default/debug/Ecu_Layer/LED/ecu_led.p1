@@ -13,8 +13,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 117: Std_ReturnType gpio_pin_intialize(const pin_config_t * const pin_config);
 [v _gpio_pin_intialize `(uc ~T0 @X0 0 ef1`C*CS272 ]
 [v F2928 `*CS273 ~T0 @X0 1 t ]
-[v F2932 `*CS273 ~T0 @X0 1 t ]
-[v F2936 `*CS273 ~T0 @X0 1 t ]
+[v F2859 `*CS272 ~T0 @X0 1 t ]
+"50 Ecu_Layer/LED/ecu_led.c
+[; ;Ecu_Layer/LED/ecu_led.c: 50:         return_value = gpio_pin_write_logic(led, LED_ON);
+[c E2816 0 1 .. ]
+[n E2816 . LOW HIGH  ]
+"95 Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h
+[; ;Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t * const pin_config, const logic_t logic);
+[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`C*CS272`CE2816 ]
+"50 Ecu_Layer/LED/ecu_led.c
+[; ;Ecu_Layer/LED/ecu_led.c: 50:         return_value = gpio_pin_write_logic(led, LED_ON);
+[c E2896 0 1 .. ]
+[n E2896 . LED_OFF LED_ON  ]
+[v F2933 `*CS273 ~T0 @X0 1 t ]
+[v F2938 `*CS273 ~T0 @X0 1 t ]
+[v F2871 `*CS272 ~T0 @X0 1 t ]
+"110 Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h
+[; ;Ecu_Layer/LED/../../Mcal_Layer/GPIO/hal_gpio.h: 110: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t * const pin_config);
+[v _gpio_pin_toggle_logic `(uc ~T0 @X0 0 ef1`C*CS272 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -463,72 +479,174 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;Ecu_Layer/LED/ecu_led.c: 26:     {
 {
-"29
-[; ;Ecu_Layer/LED/ecu_led.c: 29:         gpio_pin_intialize(led);
-[e ( _gpio_pin_intialize (1 -> _led `*CS272 ]
-"30
-[; ;Ecu_Layer/LED/ecu_led.c: 30:     }
+"27
+[; ;Ecu_Layer/LED/ecu_led.c: 27:         return_value = gpio_pin_intialize(led);
+[e = _return_value ( _gpio_pin_intialize (1 -> _led `*CS272 ]
+"28
+[; ;Ecu_Layer/LED/ecu_led.c: 28:     }
 }
 [e :U 276 ]
-"32
-[; ;Ecu_Layer/LED/ecu_led.c: 32:     return return_value;
+"30
+[; ;Ecu_Layer/LED/ecu_led.c: 30:     return return_value;
 [e ) _return_value ]
 [e $UE 274  ]
-"33
-[; ;Ecu_Layer/LED/ecu_led.c: 33: }
+"31
+[; ;Ecu_Layer/LED/ecu_led.c: 31: }
 [e :UE 274 ]
 }
-"42
-[; ;Ecu_Layer/LED/ecu_led.c: 42: Std_ReturnType led_turn_on(const led_t * const led)
+"40
+[; ;Ecu_Layer/LED/ecu_led.c: 40: Std_ReturnType led_turn_on(const led_t * const led)
 [v _led_turn_on `(uc ~T0 @X0 1 ef1`C*CS273 ]
-"43
-[; ;Ecu_Layer/LED/ecu_led.c: 43: {
+"41
+[; ;Ecu_Layer/LED/ecu_led.c: 41: {
 {
 [e :U _led_turn_on ]
 [v F2930 `*CS273 ~T0 @X0 1 t ]
-"42
-[; ;Ecu_Layer/LED/ecu_led.c: 42: Std_ReturnType led_turn_on(const led_t * const led)
+"40
+[; ;Ecu_Layer/LED/ecu_led.c: 40: Std_ReturnType led_turn_on(const led_t * const led)
 [v _led `C*CS273 ~T0 @X0 1 r1 ]
-"43
-[; ;Ecu_Layer/LED/ecu_led.c: 43: {
+"41
+[; ;Ecu_Layer/LED/ecu_led.c: 41: {
 [f ]
+"42
+[; ;Ecu_Layer/LED/ecu_led.c: 42:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"44
+[; ;Ecu_Layer/LED/ecu_led.c: 44:     if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+[e $ ! || || == -> -> -> 0 `i `*v `*CS273 _led < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U _led 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U _led 1 `i 278  ]
 "45
-[; ;Ecu_Layer/LED/ecu_led.c: 45: }
+[; ;Ecu_Layer/LED/ecu_led.c: 45:     {
+{
+"46
+[; ;Ecu_Layer/LED/ecu_led.c: 46:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"47
+[; ;Ecu_Layer/LED/ecu_led.c: 47:     }
+}
+[e $U 279  ]
+"48
+[; ;Ecu_Layer/LED/ecu_led.c: 48:     else
+[e :U 278 ]
+"49
+[; ;Ecu_Layer/LED/ecu_led.c: 49:     {
+{
+"50
+[; ;Ecu_Layer/LED/ecu_led.c: 50:         return_value = gpio_pin_write_logic(led, LED_ON);
+[e = _return_value ( _gpio_pin_write_logic (2 , -> _led `*CS272 . `E2896 1 ]
+"51
+[; ;Ecu_Layer/LED/ecu_led.c: 51:     }
+}
+[e :U 279 ]
+"53
+[; ;Ecu_Layer/LED/ecu_led.c: 53:     return return_value;
+[e ) _return_value ]
+[e $UE 277  ]
+"54
+[; ;Ecu_Layer/LED/ecu_led.c: 54: }
 [e :UE 277 ]
 }
-"54
-[; ;Ecu_Layer/LED/ecu_led.c: 54: Std_ReturnType led_turn_off(const led_t * const led)
+"63
+[; ;Ecu_Layer/LED/ecu_led.c: 63: Std_ReturnType led_turn_off(const led_t * const led)
 [v _led_turn_off `(uc ~T0 @X0 1 ef1`C*CS273 ]
-"55
-[; ;Ecu_Layer/LED/ecu_led.c: 55: {
+"64
+[; ;Ecu_Layer/LED/ecu_led.c: 64: {
 {
 [e :U _led_turn_off ]
-[v F2934 `*CS273 ~T0 @X0 1 t ]
-"54
-[; ;Ecu_Layer/LED/ecu_led.c: 54: Std_ReturnType led_turn_off(const led_t * const led)
+[v F2935 `*CS273 ~T0 @X0 1 t ]
+"63
+[; ;Ecu_Layer/LED/ecu_led.c: 63: Std_ReturnType led_turn_off(const led_t * const led)
 [v _led `C*CS273 ~T0 @X0 1 r1 ]
-"55
-[; ;Ecu_Layer/LED/ecu_led.c: 55: {
+"64
+[; ;Ecu_Layer/LED/ecu_led.c: 64: {
 [f ]
-"57
-[; ;Ecu_Layer/LED/ecu_led.c: 57: }
-[e :UE 278 ]
-}
-"66
-[; ;Ecu_Layer/LED/ecu_led.c: 66: Std_ReturnType led_turn_toggle(const led_t * const led)
-[v _led_turn_toggle `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"65
+[; ;Ecu_Layer/LED/ecu_led.c: 65:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
 "67
-[; ;Ecu_Layer/LED/ecu_led.c: 67: {
+[; ;Ecu_Layer/LED/ecu_led.c: 67:     if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+[e $ ! || || == -> -> -> 0 `i `*v `*CS273 _led < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U _led 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U _led 1 `i 281  ]
+"68
+[; ;Ecu_Layer/LED/ecu_led.c: 68:     {
 {
-[e :U _led_turn_toggle ]
-[v F2938 `*CS273 ~T0 @X0 1 t ]
-"66
-[; ;Ecu_Layer/LED/ecu_led.c: 66: Std_ReturnType led_turn_toggle(const led_t * const led)
-[v _led `C*CS273 ~T0 @X0 1 r1 ]
-"67
-[; ;Ecu_Layer/LED/ecu_led.c: 67: {
-[f ]
 "69
-[; ;Ecu_Layer/LED/ecu_led.c: 69: }
-[e :UE 279 ]
+[; ;Ecu_Layer/LED/ecu_led.c: 69:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"70
+[; ;Ecu_Layer/LED/ecu_led.c: 70:     }
+}
+[e $U 282  ]
+"71
+[; ;Ecu_Layer/LED/ecu_led.c: 71:     else
+[e :U 281 ]
+"72
+[; ;Ecu_Layer/LED/ecu_led.c: 72:     {
+{
+"73
+[; ;Ecu_Layer/LED/ecu_led.c: 73:         return_value = gpio_pin_write_logic(led, LED_OFF);
+[e = _return_value ( _gpio_pin_write_logic (2 , -> _led `*CS272 . `E2896 0 ]
+"74
+[; ;Ecu_Layer/LED/ecu_led.c: 74:     }
+}
+[e :U 282 ]
+"76
+[; ;Ecu_Layer/LED/ecu_led.c: 76:     return return_value;
+[e ) _return_value ]
+[e $UE 280  ]
+"77
+[; ;Ecu_Layer/LED/ecu_led.c: 77: }
+[e :UE 280 ]
+}
+"86
+[; ;Ecu_Layer/LED/ecu_led.c: 86: Std_ReturnType led_toggle(const led_t * const led)
+[v _led_toggle `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"87
+[; ;Ecu_Layer/LED/ecu_led.c: 87: {
+{
+[e :U _led_toggle ]
+[v F2940 `*CS273 ~T0 @X0 1 t ]
+"86
+[; ;Ecu_Layer/LED/ecu_led.c: 86: Std_ReturnType led_toggle(const led_t * const led)
+[v _led `C*CS273 ~T0 @X0 1 r1 ]
+"87
+[; ;Ecu_Layer/LED/ecu_led.c: 87: {
+[f ]
+"88
+[; ;Ecu_Layer/LED/ecu_led.c: 88:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"90
+[; ;Ecu_Layer/LED/ecu_led.c: 90:     if((((void*)0) == led) || (((uint8)5 - 1) < led->port) || (((uint8)8 - 1) < led->pin))
+[e $ ! || || == -> -> -> 0 `i `*v `*CS273 _led < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U _led 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U _led 1 `i 284  ]
+"91
+[; ;Ecu_Layer/LED/ecu_led.c: 91:     {
+{
+"92
+[; ;Ecu_Layer/LED/ecu_led.c: 92:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"93
+[; ;Ecu_Layer/LED/ecu_led.c: 93:     }
+}
+[e $U 285  ]
+"94
+[; ;Ecu_Layer/LED/ecu_led.c: 94:     else
+[e :U 284 ]
+"95
+[; ;Ecu_Layer/LED/ecu_led.c: 95:     {
+{
+"96
+[; ;Ecu_Layer/LED/ecu_led.c: 96:         return_value = gpio_pin_toggle_logic(led);
+[e = _return_value ( _gpio_pin_toggle_logic (1 -> _led `*CS272 ]
+"97
+[; ;Ecu_Layer/LED/ecu_led.c: 97:     }
+}
+[e :U 285 ]
+"99
+[; ;Ecu_Layer/LED/ecu_led.c: 99:     return return_value;
+[e ) _return_value ]
+[e $UE 283  ]
+"100
+[; ;Ecu_Layer/LED/ecu_led.c: 100: }
+[e :UE 283 ]
 }
