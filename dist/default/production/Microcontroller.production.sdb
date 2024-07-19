@@ -3,6 +3,15 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
+"59 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/DC_MOTOR/ecu_dc_motor.c
+[e E2816 . `uc
+LOW 0
+HIGH 1
+]
+[e E2896 . `uc
+DC_MOTOR_OFF 0
+DC_MOTOR_ON 1
+]
 "50 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/LED/ecu_led.c
 [e E2816 . `uc
 LOW 0
@@ -26,6 +35,20 @@ BUTTON_ACTIVE_LOW 1
 LOW 0
 HIGH 1
 ]
+"29 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/RELAY/ecu_relay.c
+[e E2820 . `uc
+OUTPUT 0
+INPUT 1
+]
+"68
+[e E2816 . `uc
+LOW 0
+HIGH 1
+]
+[e E2896 . `uc
+RELAY_OFF 0
+RELAY_ON 1
+]
 "46 D:\Yehya\Embededd_System\Microcontroller\Mcal_Layer/GPIO/hal_gpio.c
 [e E2820 . `uc
 OUTPUT 0
@@ -44,43 +67,17 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"12 D:\Yehya\Embededd_System\Microcontroller\Application.c
-[e E2834 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
+"21 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/7_SEGMENT/ecu_seven_segment.c
+[e E2896 . `uc
+SEGMENT_COMMON_ANODE 0
+SEGMENT_COMMON_CATHODE 1
 ]
-[e E2824 . `uc
-PIN0 0
-PIN1 1
-PIN2 2
-PIN3 3
-PIN4 4
-PIN5 5
-PIN6 6
-PIN7 7
-]
-[e E2946 . `uc
-RELAY_OFF 0
-RELAY_ON 1
-]
-"29 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/RELAY/ecu_relay.c
-[e E2820 . `uc
-OUTPUT 0
-INPUT 1
-]
-"68
+"74
 [e E2816 . `uc
 LOW 0
 HIGH 1
 ]
-[e E2896 . `uc
-RELAY_OFF 0
-RELAY_ON 1
-]
-"24 D:\Yehya\Embededd_System\Microcontroller\Application.c
+"10 D:\Yehya\Embededd_System\Microcontroller\Application.c
 [v _main main `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -106,10 +103,6 @@ RELAY_ON 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"17 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/RELAY/ecu_relay.c
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-"113
-[v _relay_toggle relay_toggle `(uc  1 e 1 0 ]
 "24 D:\Yehya\Embededd_System\Microcontroller\Mcal_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "80
@@ -120,18 +113,6 @@ RELAY_ON 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "156
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-"10 D:\Yehya\Embededd_System\Microcontroller\Application.c
-[v _relay1_s relay1_s `uc  1 e 1 0 ]
-[v _relay2_s relay2_s `uc  1 e 1 0 ]
-[s S275 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 status 1 0 :1:6 
-`uc 1 reserved 1 0 :1:7 
-]
-"12
-[v _relay1 relay1 `S275  1 e 1 0 ]
-"18
-[v _relay2 relay2 `S275  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -168,111 +149,8 @@ RELAY_ON 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "17
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"24 D:\Yehya\Embededd_System\Microcontroller\Application.c
+"10 D:\Yehya\Embededd_System\Microcontroller\Application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"38
-} 0
-"113 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/RELAY/ecu_relay.c
-[v _relay_toggle relay_toggle `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"125
-[v relay_toggle@relay_module relay_module `S24  1 a 1 9 ]
-"115
-[v relay_toggle@return_value return_value `uc  1 a 1 8 ]
-[s S275 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 status 1 0 :1:6 
-`uc 1 reserved 1 0 :1:7 
-]
-"113
-[v relay_toggle@relay relay `C*.30CS275  1 p 1 6 ]
-"124
-[v relay_toggle@F2948 F2948 `S24  1 s 1 F2948 ]
-"136
-} 0
-"135 D:\Yehya\Embededd_System\Microcontroller\Mcal_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-{
-"137
-[v gpio_pin_toggle_logic@return_value return_value `uc  1 a 1 5 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"135
-[v gpio_pin_toggle_logic@pin_config pin_config `C*.30CS24  1 p 1 0 ]
-"149
-} 0
-"17 D:\Yehya\Embededd_System\Microcontroller\Ecu_Layer/RELAY/ecu_relay.c
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"29
-[v relay_initialize@relay_module relay_module `S24  1 a 1 13 ]
-"19
-[v relay_initialize@return_value return_value `uc  1 a 1 12 ]
-[s S275 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 status 1 0 :1:6 
-`uc 1 reserved 1 0 :1:7 
-]
-"17
-[v relay_initialize@relay relay `C*.30CS275  1 p 1 10 ]
-"28
-[v relay_initialize@F2927 F2927 `S24  1 s 1 F2927 ]
-"40
-} 0
-"156 D:\Yehya\Embededd_System\Microcontroller\Mcal_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
-{
-"158
-[v gpio_pin_intialize@return_value return_value `uc  1 a 1 9 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"156
-[v gpio_pin_intialize@pin_config pin_config `C*.30CS24  1 p 1 8 ]
-"171
-} 0
-"80
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-{
-"82
-[v gpio_pin_write_logic@return_value return_value `uc  1 a 1 7 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"80
-[v gpio_pin_write_logic@pin_config pin_config `C*.30CS24  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `CE2816  1 p 1 1 ]
-"106
-} 0
-"24
-[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
-{
-"26
-[v gpio_pin_direction_intialize@return_value return_value `uc  1 a 1 6 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"24
-[v gpio_pin_direction_intialize@pin_config pin_config `C*.30CS24  1 p 1 0 ]
-"50
+"14
 } 0

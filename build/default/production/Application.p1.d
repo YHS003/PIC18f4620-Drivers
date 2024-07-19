@@ -12,4 +12,8 @@ Ecu_Layer/LED/ecu_led_cfg.h  \
 Ecu_Layer/PUSH_BUTTON/ecu_push_button.h  \
 Ecu_Layer/PUSH_BUTTON/ecu_push_button_cfg.h  \
 Ecu_Layer/RELAY/ecu_relay.h  \
-Ecu_Layer/RELAY/ecu_relay_cfg.h 
+Ecu_Layer/RELAY/ecu_relay_cfg.h  \
+Ecu_Layer/DC_MOTOR/ecu_dc_motor.h  \
+Ecu_Layer/DC_MOTOR/ecu_dc_motor_cfg.h  \
+Ecu_Layer/7_SEGMENT/ecu_seven_segment.h  \
+Ecu_Layer/7_SEGMENT/ecu_seven_segment_cfg.h 

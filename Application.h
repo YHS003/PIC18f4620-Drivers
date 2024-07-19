@@ -13,7 +13,8 @@
 #include "Ecu_Layer/LED/ecu_led.h"
 #include "Ecu_Layer/PUSH_BUTTON/ecu_push_button.h"
 #include "Ecu_Layer/RELAY/ecu_relay.h"
-
+#include "Ecu_Layer/DC_MOTOR/ecu_dc_motor.h"
+#include "Ecu_Layer/7_SEGMENT/ecu_seven_segment.h"
 
 /* Section : Macro Declarations */
 

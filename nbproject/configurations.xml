@@ -5,6 +5,14 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="Ecu_Layer" displayName="Ecu_Layer" projectFiles="true">
+        <logicalFolder name="7_SEGMENT" displayName="7_SEGMENT" projectFiles="true">
+          <itemPath>Ecu_Layer/7_SEGMENT/ecu_seven_segment.h</itemPath>
+          <itemPath>Ecu_Layer/7_SEGMENT/ecu_seven_segment_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="DC_MOTOR" displayName="DC_MOTOR" projectFiles="true">
+          <itemPath>Ecu_Layer/DC_MOTOR/ecu_dc_motor.h</itemPath>
+          <itemPath>Ecu_Layer/DC_MOTOR/ecu_dc_motor_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>Ecu_Layer/LED/ecu_led.h</itemPath>
           <itemPath>Ecu_Layer/LED/ecu_led_cfg.h</itemPath>
@@ -43,6 +51,12 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="Ecu_Layer" displayName="Ecu_Layer" projectFiles="true">
+        <logicalFolder name="7_SEGMENT" displayName="7_SEGMENT" projectFiles="true">
+          <itemPath>Ecu_Layer/7_SEGMENT/ecu_seven_segment.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="DC_MOTOR" displayName="DC_MOTOR" projectFiles="true">
+          <itemPath>Ecu_Layer/DC_MOTOR/ecu_dc_motor.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>Ecu_Layer/LED/ecu_led.c</itemPath>
         </logicalFolder>

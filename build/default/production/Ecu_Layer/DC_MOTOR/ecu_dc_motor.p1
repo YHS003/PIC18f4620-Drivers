@@ -1,5 +1,32 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
+"65 Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h
+[; ;Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h: 65: typedef struct{
+[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . port pin direction logic ]
+"27 Ecu_Layer/DC_MOTOR/ecu_dc_motor.h
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.h: 27: typedef struct{
+[s S273 `S272 -> 2 `i ]
+[n S273 . dc_motor_pins ]
+[v F2920 `*CS273 ~T0 @X0 1 t ]
+[v F2875 `*CS272 ~T0 @X0 1 t ]
+"117 Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h
+[; ;Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h: 117: Std_ReturnType gpio_pin_intialize(const pin_config_t * const pin_config);
+[v _gpio_pin_intialize `(uc ~T0 @X0 0 ef1`C*CS272 ]
+[v F2925 `*CS273 ~T0 @X0 1 t ]
+[v F2859 `*CS272 ~T0 @X0 1 t ]
+"59 Ecu_Layer/DC_MOTOR/ecu_dc_motor.c
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 59:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[0]), DC_MOTOR_ON);
+[c E2816 0 1 .. ]
+[n E2816 . LOW HIGH  ]
+"95 Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h
+[; ;Ecu_Layer/DC_MOTOR/../../Mcal_Layer/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t * const pin_config, const logic_t logic);
+[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`C*CS272`CE2816 ]
+"59 Ecu_Layer/DC_MOTOR/ecu_dc_motor.c
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 59:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[0]), DC_MOTOR_ON);
+[c E2896 0 1 .. ]
+[n E2896 . DC_MOTOR_OFF DC_MOTOR_ON  ]
+[v F2930 `*CS273 ~T0 @X0 1 t ]
+[v F2935 `*CS273 ~T0 @X0 1 t ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -411,20 +438,223 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"10 Application.c
-[; ;Application.c: 10: int main()
-[v _main `(i ~T0 @X0 1 ef ]
-"11
-[; ;Application.c: 11: {
+"17 Ecu_Layer/DC_MOTOR/ecu_dc_motor.c
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 17: Std_ReturnType dc_motor_initialize(const dc_motor_t * const dc_motor)
+[v _dc_motor_initialize `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"18
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 18: {
 {
-[e :U _main ]
+[e :U _dc_motor_initialize ]
+[v F2922 `*CS273 ~T0 @X0 1 t ]
+"17
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 17: Std_ReturnType dc_motor_initialize(const dc_motor_t * const dc_motor)
+[v _dc_motor `C*CS273 ~T0 @X0 1 r1 ]
+"18
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 18: {
 [f ]
-"13
-[; ;Application.c: 13:     return (0);
-[e ) -> 0 `i ]
-[e $UE 278  ]
-"14
-[; ;Application.c: 14: }
-[e :UE 278 ]
+"19
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 19:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"21
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 21:     if((((void*)0) == dc_motor) ||
+[e $ ! || || || || == -> -> -> 0 `i `*v `*CS273 _dc_motor < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i 275  ]
+"26
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 26:     {
+{
+"27
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 27:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"28
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 28:     }
+}
+[e $U 276  ]
+"29
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 29:     else
+[e :U 275 ]
+"30
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 30:     {
+{
+"31
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 31:         return_value = gpio_pin_intialize(&(dc_motor->dc_motor_pins[0]));
+[e = _return_value ( _gpio_pin_intialize (1 &U *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux ]
+"32
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 32:         return_value = gpio_pin_intialize(&(dc_motor->dc_motor_pins[1]));
+[e = _return_value ( _gpio_pin_intialize (1 &U *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux ]
+"33
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 33:     }
+}
+[e :U 276 ]
+"35
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 35:     return return_value;
+[e ) _return_value ]
+[e $UE 274  ]
+"36
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 36: }
+[e :UE 274 ]
+}
+"45
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 45: Std_ReturnType dc_motor_move_right(const dc_motor_t * const dc_motor)
+[v _dc_motor_move_right `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"46
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 46: {
+{
+[e :U _dc_motor_move_right ]
+[v F2927 `*CS273 ~T0 @X0 1 t ]
+"45
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 45: Std_ReturnType dc_motor_move_right(const dc_motor_t * const dc_motor)
+[v _dc_motor `C*CS273 ~T0 @X0 1 r1 ]
+"46
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 46: {
+[f ]
+"47
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 47:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"49
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 49:     if((((void*)0) == dc_motor) ||
+[e $ ! || || || || == -> -> -> 0 `i `*v `*CS273 _dc_motor < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i 278  ]
+"54
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 54:     {
+{
+"55
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 55:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"56
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 56:     }
+}
+[e $U 279  ]
+"57
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 57:     else
+[e :U 278 ]
+"58
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 58:     {
+{
+"59
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 59:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[0]), DC_MOTOR_ON);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 1 ]
+"60
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 60:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[1]), DC_MOTOR_OFF);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 0 ]
+"61
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 61:     }
+}
+[e :U 279 ]
+"63
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 63:     return return_value;
+[e ) _return_value ]
+[e $UE 277  ]
+"64
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 64: }
+[e :UE 277 ]
+}
+"73
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 73: Std_ReturnType dc_motor_move_left(const dc_motor_t * const dc_motor)
+[v _dc_motor_move_left `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"74
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 74: {
+{
+[e :U _dc_motor_move_left ]
+[v F2932 `*CS273 ~T0 @X0 1 t ]
+"73
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 73: Std_ReturnType dc_motor_move_left(const dc_motor_t * const dc_motor)
+[v _dc_motor `C*CS273 ~T0 @X0 1 r1 ]
+"74
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 74: {
+[f ]
+"75
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 75:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"77
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 77:     if((((void*)0) == dc_motor) ||
+[e $ ! || || || || == -> -> -> 0 `i `*v `*CS273 _dc_motor < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i 281  ]
+"82
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 82:     {
+{
+"83
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 83:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"84
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 84:     }
+}
+[e $U 282  ]
+"85
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 85:     else
+[e :U 281 ]
+"86
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 86:     {
+{
+"87
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 87:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[0]), DC_MOTOR_OFF);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 0 ]
+"88
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 88:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[1]), DC_MOTOR_ON);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 1 ]
+"89
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 89:     }
+}
+[e :U 282 ]
+"91
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 91:     return return_value;
+[e ) _return_value ]
+[e $UE 280  ]
+"92
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 92: }
+[e :UE 280 ]
+}
+"101
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 101: Std_ReturnType dc_motor_stop(const dc_motor_t * const dc_motor)
+[v _dc_motor_stop `(uc ~T0 @X0 1 ef1`C*CS273 ]
+"102
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 102: {
+{
+[e :U _dc_motor_stop ]
+[v F2937 `*CS273 ~T0 @X0 1 t ]
+"101
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 101: Std_ReturnType dc_motor_stop(const dc_motor_t * const dc_motor)
+[v _dc_motor `C*CS273 ~T0 @X0 1 r1 ]
+"102
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 102: {
+[f ]
+"103
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 103:     Std_ReturnType return_value = (Std_ReturnType)0x01;
+[v _return_value `uc ~T0 @X0 1 a ]
+[e = _return_value -> -> 1 `i `uc ]
+"105
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 105:     if((((void*)0) == dc_motor) ||
+[e $ ! || || || || == -> -> -> 0 `i `*v `*CS273 _dc_motor < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 5 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 0 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i < - -> -> -> 8 `i `uc `i -> 1 `i -> . *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux 1 `i 284  ]
+"110
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 110:     {
+{
+"111
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 111:         return_value = (Std_ReturnType)0x00;
+[e = _return_value -> -> 0 `i `uc ]
+"112
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 112:     }
+}
+[e $U 285  ]
+"113
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 113:     else
+[e :U 284 ]
+"114
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 114:     {
+{
+"115
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 115:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[0]), DC_MOTOR_OFF);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 0 ]
+"116
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 116:         return_value = gpio_pin_write_logic(&(dc_motor->dc_motor_pins[1]), DC_MOTOR_OFF);
+[e = _return_value ( _gpio_pin_write_logic (2 , &U *U + &U . *U _dc_motor 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _dc_motor 0 `ui `ux . `E2896 0 ]
+"117
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 117:     }
+}
+[e :U 285 ]
+"119
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 119:     return return_value;
+[e ) _return_value ]
+[e $UE 283  ]
+"120
+[; ;Ecu_Layer/DC_MOTOR/ecu_dc_motor.c: 120: }
+[e :UE 283 ]
 }
