@@ -222,7 +222,7 @@ Std_ReturnType gpio_port_get_direction_status(const port_index_t port, uint8 * c
  * @param logic the logic that is wanted to be written
  * @return the status of function
  */
-Std_ReturnType gpio_port_write_logic(const port_index_t const port, const uint8 logic)
+Std_ReturnType gpio_port_write_logic(const port_index_t port, const uint8 logic)
 {
     Std_ReturnType return_value = E_OK;
     
